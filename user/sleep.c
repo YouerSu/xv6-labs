@@ -1,0 +1,15 @@
+#include "kernel/types.h"
+#include "kernel/stat.h"
+#include "user/user.h"
+
+int
+main(int argc, char *argv[])
+{
+  int sum = 0;
+  for(int i = 1; i < argc; i++){
+    sum += atoi(argv[i]);
+  }
+  sleep(sum);
+  exit(0);
+  
+}

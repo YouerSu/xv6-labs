@@ -134,11 +134,17 @@ runcmd(struct cmd *cmd)
 int
 getcmd(char *buf, int nbuf)
 {
+
   write(2, "$ ", 2);
   memset(buf, 0, nbuf);
   gets(buf, nbuf);
+  if (!(buf[0] == 's' && buf[1] == 'h')){
+    write(2, "- ", 2);
+  }
+  
   if(buf[0] == 0) // EOF
     return -1;
+
   return 0;
 }
 
